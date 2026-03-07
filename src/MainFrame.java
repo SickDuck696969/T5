@@ -1,10 +1,9 @@
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
-    private JTextField txtUserName;
-    // Bước 4: Đổi ID txtmatkhau -> txtpassword
-    private JPasswordField txtpassword;
-    // Bước 4: Thêm nút btnlogin
+    // Sửa ID biến thành textboxusername và textboxmatkhau
+    private JTextField textboxusername;
+    private JPasswordField textboxmatkhau;
     private JButton btnlogin;
 
     public MainFrame() {
@@ -14,32 +13,33 @@ public class MainFrame extends JFrame {
 
     private void initUI() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300); // Tăng chiều cao để chứa thêm nút bấm
+        setSize(400, 300); 
         setLocationRelativeTo(null); 
         setLayout(null); 
 
         // --- UserName ---
         JLabel label = new JLabel("Tên đăng nhập:");
-        label.setBounds(30, 50, 80, 25); 
+        label.setBounds(30, 50, 100, 25); 
         add(label);
 
-        txtUserName = new JTextField();
-        txtUserName.setBounds(120, 50, 200, 25);
-        add(txtUserName);
+        // Sử dụng ID mới: textboxusername
+        textboxusername = new JTextField();
+        textboxusername.setBounds(150, 50, 180, 25);
+        add(textboxusername);
 
-        // --- Bước 4: Sửa Label Mật khẩu -> Password ---
+        // --- Password ---
         JLabel labelPass = new JLabel("Mật khẩu:");
-        labelPass.setBounds(30, 90, 80, 25); 
+        labelPass.setBounds(30, 90, 100, 25); 
         add(labelPass);
 
-        // Bước 4: Sử dụng ID mới txtpassword
-        txtpassword = new JPasswordField(); 
-        txtpassword.setBounds(120, 90, 200, 25);
-        add(txtpassword);
+        // Sử dụng ID mới: textboxmatkhau
+        textboxmatkhau = new JPasswordField(); 
+        textboxmatkhau.setBounds(150, 90, 180, 25);
+        add(textboxmatkhau);
 
-        // --- Bước 4: Thêm nút btnlogin ---
+        // --- Nút bấm ---
         btnlogin = new JButton("Đăng nhập");
-        btnlogin.setBounds(120, 140, 100, 30); // Đặt dưới ô Password
+        btnlogin.setBounds(150, 140, 120, 30); 
         add(btnlogin);
     }
 
