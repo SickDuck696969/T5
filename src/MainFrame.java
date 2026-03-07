@@ -1,10 +1,12 @@
 import javax.swing.*;
-import java.awt.*;
 
 /**
- * A simple JFrame window with basic components.
+ * A simple JFrame window with only Username components.
  */
 public class MainFrame extends JFrame {
+    // Khai báo biến thành viên để dễ quản lý (Bước 8 trong bài tập)
+    private JTextField txtUserName;
+
     public MainFrame() {
         super("Simple JFrame Example");
         initUI();
@@ -12,17 +14,24 @@ public class MainFrame extends JFrame {
 
     private void initUI() {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(400, 300);
-        setLocationRelativeTo(null); // Center on screen
+        setSize(400, 200); // Điều chỉnh lại kích thước cho gọn
+        setLocationRelativeTo(null); 
+        setLayout(null); // Sử dụng Absolute Layout để đặt vị trí tự do
 
-        // Create a simple label and button
-        JLabel label = new JLabel("Hello from JFrame!", SwingConstants.CENTER);
-        JButton button = new JButton("Click me");
-        button.addActionListener(e -> JOptionPane.showMessageDialog(this, "Button clicked!"));
+        // 1. Tạo và đặt vị trí cho Label UserName (Bước 2 trong bài tập)
+        JLabel label = new JLabel("UserName:");
+        label.setBounds(30, 50, 80, 25); // (x, y, width, height)
+        add(label);
 
-        // Use BorderLayout for simple layout
-        setLayout(new BorderLayout(10, 10));
-        add(label, BorderLayout.CENTER);
-        add(button, BorderLayout.SOUTH);
+        // 2. Tạo và đặt vị trí cho Textbox UserName (Bước 2 trong bài tập)
+        txtUserName = new JTextField();
+        txtUserName.setBounds(120, 50, 200, 25);
+        add(txtUserName);
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(() -> {
+            new MainFrame().setVisible(true);
+        });
     }
 }
