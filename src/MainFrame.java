@@ -1,13 +1,14 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame {
-    // Sửa ID biến thành textboxusername và textboxmatkhau
     private JTextField textboxusername;
     private JPasswordField textboxmatkhau;
     private JButton btnlogin;
 
     public MainFrame() {
-        super("Simple JFrame Example");
+        super("Chương trình Đăng nhập");
         initUI();
     }
 
@@ -17,30 +18,43 @@ public class MainFrame extends JFrame {
         setLocationRelativeTo(null); 
         setLayout(null); 
 
-        // --- UserName ---
-        JLabel label = new JLabel("Tên đăng nhập:");
-        label.setBounds(30, 50, 100, 25); 
+        // Việt hóa Label (Bước 6)
+        JLabel label = new JLabel("tên đăng nhập:");
+        label.setBounds(30, 50, 120, 25); 
         add(label);
 
-        // Sử dụng ID mới: textboxusername
         textboxusername = new JTextField();
         textboxusername.setBounds(150, 50, 180, 25);
         add(textboxusername);
 
-        // --- Password ---
-        JLabel labelPass = new JLabel("Mật khẩu:");
-        labelPass.setBounds(30, 90, 100, 25); 
+        // Việt hóa Label (Bước 6)
+        JLabel labelPass = new JLabel("mật khẩu:");
+        labelPass.setBounds(30, 90, 120, 25); 
         add(labelPass);
 
-        // Sử dụng ID mới: textboxmatkhau
         textboxmatkhau = new JPasswordField(); 
         textboxmatkhau.setBounds(150, 90, 180, 25);
         add(textboxmatkhau);
 
-        // --- Nút bấm ---
-        btnlogin = new JButton("Đăng nhập");
+        // Việt hóa nút bấm (Bước 7)
+        btnlogin = new JButton("đăng nhập");
         btnlogin.setBounds(150, 140, 120, 30); 
         add(btnlogin);
+
+        // Thêm logic đăng nhập (Bước 9)
+        btnlogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String user = textboxusername.getText();
+                String pass = new String(textboxmatkhau.getPassword());
+
+                if (user.equals("admin") && pass.equals("admin")) {
+                    JOptionPane.showMessageDialog(null, "Đăng nhập thành công!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Sai tài khoản hoặc mật khẩu!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
     }
 
     public static void main(String[] args) {
