@@ -19,7 +19,7 @@ public class MainFrame extends JFrame {
         setLayout(null); 
 
         // --- UserName ---
-        JLabel label = new JLabel("UserName:");
+        JLabel label = new JLabel("Tên đăng nhập:");
         label.setBounds(30, 50, 80, 25); 
         add(label);
 
@@ -28,7 +28,7 @@ public class MainFrame extends JFrame {
         add(txtUserName);
 
         // --- Bước 4: Sửa Label Mật khẩu -> Password ---
-        JLabel labelPass = new JLabel("Password:");
+        JLabel labelPass = new JLabel("Mật khẩu:");
         labelPass.setBounds(30, 90, 80, 25); 
         add(labelPass);
 
@@ -38,7 +38,7 @@ public class MainFrame extends JFrame {
         add(txtpassword);
 
         // --- Bước 4: Thêm nút btnlogin ---
-        btnlogin = new JButton("Login");
+        btnlogin = new JButton("Đăng nhập");
         btnlogin.setBounds(120, 140, 100, 30); // Đặt dưới ô Password
         add(btnlogin);
     }
